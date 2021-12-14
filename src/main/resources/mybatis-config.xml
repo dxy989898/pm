@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!--引入软编码文件-->
+    <properties resource="jdbc.properties"></properties>
+    <!--路径别名配置-->
+    <typeAliases>
+        <package name="com.yjxxt.bean"></package>
+    </typeAliases>
+    <!--开发环境配置-->
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="${java.driver}"/>
+                <property name="url" value="${java.url}"/>
+                <property name="username" value="${java.username}"/>
+                <property name="password" value="${java.password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+<!--扫描SQL映射文件-->
+    <mappers>
+        <mapper resource="mappers/UserMapper.xml"/>
+    </mappers>
+</configuration>
